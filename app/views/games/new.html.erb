@@ -1,9 +1,30 @@
-<h1>New Game</h1>
-<p><%= @letters %></p>
-<form action="/score" method="POST">
+<%# <h1>New Game</h1>
+<><%= @letters %>
+<%# <form action="/score" method="POST">
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-  <input type="hidden" value=<%= @letters.join('') %> name="letters">
-  <input type="hidden" value=<%= @start_time %> name="time">
+  <%# <input type="hidden" value=name="letters">
+  <input type="hidden" value= name="time">
   <input id="attempt" name= "attempt" type="text" placeholder="Type your attempt">
   <input type="submit" value="Try it!">
-</form>
+</form> %>
+
+
+<h1>New game</h1>
+  <div class="letters mb-3">
+    <% @letters.each do |letter| %>
+        <div><%= letter %></div>
+    <% end %>
+  </div>
+  <div class="user-input">
+    <p>What is the longest word you can find?</p>
+    <form action="/score" class="form-inline" method="post">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <input type="hidden" value=<%= @letters.join('') %> name="letters">
+      <input type="hidden" value=<%= @start_time %> name="time">
+      <div class="input-group mb-3">
+        <input type="text" id="attempt" name="attempt" class="form-control">
+        <div class="input-group-append">
+          <input type="submit" value="Play" class="form-control btn btn-primary">
+        </div>
+    </form>
+  </div>

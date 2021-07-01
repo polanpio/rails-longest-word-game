@@ -11,8 +11,8 @@ class GamesController < ApplicationController
   def score
     @attempt = params[:attempt]
     @end = Time.now
-    @end_time = @end.min * 60 + @end.sec
     @letters = params[:letters].split("")
+    @end_time = @end.min * 60 + @end.sec
     @start_time = params[:time].to_i
     @score = calculate_score(@attempt, @start_time, @end_time)
     @result = run_game(@attempt, @letters, @start_time, @end_time)

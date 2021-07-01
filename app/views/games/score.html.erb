@@ -1,5 +1,7 @@
-<p><strong>The grid : </strong><%= @letters %></p>
+<h1>Results</h1>
+<p><strong>The letters : </strong><%= @letters.join(" ") %></p>
 <p><strong>Your attempt : </strong><%= @attempt %></p>
 <p><strong>Your score : </strong><%= @score %></p>
-<p><%= @result %></p>
-<%= link_to "Try another game", "/new" %>
+<p><strong>Your time : </strong><%= @result[:time] %></p>
+<p><strong>Message : </strong><%= @result[:message] %></p>
+<%= link_to "Play again", "/new" %>
